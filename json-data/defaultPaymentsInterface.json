@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "paymentName": "Creditcard",
+    "feePercentage": 2.9,
+    "fixedFee": 0.3,
+    "isActive": true,
+    "daysToRelease": 7,
+    "interfaceResponses": [],
+    "allowedCurrencies": []
+  },
+  {
+    "id": 1,
+    "paymentName": "ACH",
+    "feePercentage": 0,
+    "fixedFee": 2,
+    "isActive": true,
+    "daysToRelease": 8,
+    "interfaceResponses": [],
+    "allowedCurrencies": []
+  },
+  {
+    "id": 2,
+    "paymentName": "Paypal",
+    "feePercentage": 4,
+    "fixedFee": 0.3,
+    "isActive": true,
+    "daysToRelease": 7,
+    "interfaceResponses": [],
+    "allowedCurrencies": []
+  },
+  {
+    "id": 3,
+    "paymentName": "Use OJC card",
+    "feePercentage": 2.9,
+    "fixedFee": 0.5,
+    "isActive": true,
+    "daysToRelease": 7,
+    "interfaceResponses": [],
+    "allowedCurrencies": []
+  },
+  {
+    "id": 4,
+    "paymentName": "Use donors fund",
+    "feePercentage": 2.9,
+    "fixedFee": 0.5,
+    "isActive": true,
+    "daysToRelease": 7,
+    "interfaceResponses": [],
+    "allowedCurrencies": []
+  },
+  {
+    "id": 5,
+    "paymentName": "GooglePay",
+    "feePercentage": 4,
+    "fixedFee": 0.3,
+    "isActive": true,
+    "daysToRelease": 8,
+    "interfaceResponses": [],
+    "allowedCurrencies": []
+  }
+]

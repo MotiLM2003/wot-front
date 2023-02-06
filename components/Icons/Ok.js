@@ -1,0 +1,28 @@
+import React from 'react';
+
+const Ok = ({ stroke = 'red' }) => {
+  return (
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <path
+        d='M7.66602 12.5417L10.916 15.7917L16.3327 9.29175'
+        stroke={stroke}
+        stroke-width='2'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+      />
+      <path
+        d='M11.9993 22.8334C17.9824 22.8334 22.8327 17.9832 22.8327 12.0001C22.8327 6.017 17.9824 1.16675 11.9993 1.16675C6.01626 1.16675 1.16602 6.017 1.16602 12.0001C1.16602 17.9832 6.01626 22.8334 11.9993 22.8334Z'
+        stroke={stroke}
+        stroke-width='2'
+      />
+    </svg>
+  );
+};
+
+export default Ok;

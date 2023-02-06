@@ -1,0 +1,101 @@
+{
+  "amount": 0.01,
+  "amount_details": {
+    "tax": 0,
+    "surcharge": 0,
+    "shipping": 0,
+    "tip": 0,
+    "discount": 0
+  },
+  "name": "string",
+  "transaction_details": {
+    "description": "string",
+    "clerk": "string",
+    "terminal": "string",
+    "client_ip": "string",
+    "signature": "string",
+    "invoice_number": "string",
+    "po_number": "string",
+    "order_number": "string"
+  },
+  "billing_info": {
+    "first_name": "string",
+    "last_name": "string",
+    "street": "string",
+    "street2": "string",
+    "state": "string",
+    "city": "string",
+    "zip": "string",
+    "country": "string",
+    "phone": "string"
+  },
+  "shipping_info": {
+    "first_name": "string",
+    "last_name": "string",
+    "street": "string",
+    "street2": "string",
+    "state": "string",
+    "city": "string",
+    "zip": "string",
+    "country": "string",
+    "phone": "string"
+  },
+  "custom_fields": {
+    "custom1": "string",
+    "custom2": "string",
+    "custom3": "string",
+    "custom4": "string",
+    "custom5": "string",
+    "custom6": "string",
+    "custom7": "string",
+    "custom8": "string",
+    "custom9": "string",
+    "custom10": "string",
+    "custom11": "string",
+    "custom12": "string",
+    "custom13": "string",
+    "custom14": "string",
+    "custom15": "string",
+    "custom16": "string",
+    "custom17": "string",
+    "custom18": "string",
+    "custom19": "string",
+    "custom20": "string"
+  },
+  "ignore_duplicates": false,
+  "software": "string",
+  "customer": {
+    "send_receipt": false,
+    "email": "user@example.com",
+    "fax": "string",
+    "identifier": "string",
+    "customer_id": 1
+  },
+  "transaction_flags": {
+    "allow_partial_approval": false,
+    "is_recurring": false,
+    "is_installment": false,
+    "is_customer_initiated": false,
+    "cardholder_present": false,
+    "card_present": false,
+    "terminal": {
+      "operating_environment": 1,
+      "cardholder_authentication_method": "6",
+      "cardholder_authentication_entity": 5,
+      "print_capability": false
+    }
+  },
+  "avs_address": "string",
+  "avs_zip": "string",
+  "expiry_month": 1,
+  "expiry_year": 2020,
+  "cvv2": "stri",
+  "3d_secure": {
+    "eci": "00",
+    "cavv": "stringstringstringstringstri",
+    "ds_trans_id": "stringstringstringstringstringstring"
+  },
+  "card": "stringstringst",
+  "capture": true,
+  "save_card": false
+}
