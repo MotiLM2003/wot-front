@@ -30,9 +30,10 @@ export default function Home() {
 	//   password: "moti2003",
 	// });
 	const [details, setDetails] = useState({
-		email: 'motiphone2003@gmail.com1',
-		password: 'moti2003',
+		email: '',
+		password: '',
 	});
+
 	const [isLoading, setLoading] = useState(false);
 	const [password, setPassword] = useState('');
 	const [passwordVisible, setPasswordVisible] = useState(false);

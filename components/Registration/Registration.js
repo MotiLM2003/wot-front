@@ -17,7 +17,7 @@ import {
 	isFormValid,
 } from '/utils/validators';
 
-const initialData = fakeData;
+const initialData = data;
 const Registration = () => {
 	const setTempErros = () => {
 		const tempErrors = {};
@@ -58,6 +58,7 @@ const Registration = () => {
 		const user = await api.post('/users/', data);
 		setStage(2);
 	};
+
 	const onChange = (e) => {
 		const name = e.target.name;
 		const value = e.target.value;
