@@ -30,7 +30,7 @@ export default function Home() {
 	//   password: "moti2003",
 	// });
 	const [details, setDetails] = useState({
-		email: 'test@test.com',
+		email: 'motiphone2003@gmail.com1',
 		password: 'moti2003',
 	});
 	const [isLoading, setLoading] = useState(false);
@@ -38,6 +38,7 @@ export default function Home() {
 	const [passwordVisible, setPasswordVisible] = useState(false);
 	const [isConfOpen, setIsConfOpen] = useState(false);
 	const [isSignUp, setIsSignUp] = useState(false);
+	const [isErrorLoggin, setIsErrorLogin] = useState(false);
 
 	const onChange = (e) => {
 		const name = e.target.name;
@@ -48,9 +49,11 @@ export default function Home() {
 
 	const logIn = async () => {
 		try {
+			setIsErrorLogin(false);
 			setLoading(true);
 			const { data } = await api.post('/users/login', details);
 			const user = data.user;
+			console.log(user);
 			dispatch(setUser(user));
 			setLoading(false);
 			api.post('logger/add', {
@@ -61,7 +64,8 @@ export default function Home() {
 			});
 			router.push('/dashboard');
 		} catch (error) {
-			console.log(error);
+			// const message = error.response.data.message;
+			setIsErrorLogin(true);
 			setLoading(false);
 		}
 	};
@@ -89,7 +93,12 @@ export default function Home() {
 							backIconCallback={() => {
 								setPasswordVisible((prev) => !prev);
 							}}
-						/>{' '}
+						/>
+						{isErrorLoggin && (
+							<div className='text-xs text-red'>
+								The login details you entered are incorrect
+							</div>
+						)}
 						<div className='flex justify-between text-xs text-paragraph underline'>
 							<div
 								className='cursor-pointer'

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import moment from 'moment';
+import { useSelector, useDispatch } from 'react-redux';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {
@@ -21,10 +22,11 @@ import edit from '../../../images/icons/edit.svg';
 import Loading from '@components/Loader/Loader';
 import Loader from '@components/Loader/Loader';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
+
 const CampaignList = () => {
 	const router = useRouter();
 	const [list, setList] = useState([]);
-
+	const { user } = useSelector((state) => state.userReducer);
 	const [isLoading, setLoading] = useState(false);
 	const [filterByMenu, setFilterBy] = useState(0);
 	const [totals, setTotals] = useState({
@@ -33,17 +35,47 @@ const CampaignList = () => {
 		pending: 0,
 		approved: 0,
 	});
+	const { selectedUser, selectedCampagin } = useSelector(
+		(state) => state.switcherReducer
+	);
 
-	useEffect(() => {
-		const getData = async () => {
-			setLoading(true);
-			const { data } = await api.post('/campaigns/get');
-			setLoading(false);
-			setList(data);
+	const [localUser, setLocalUser] = useState(user);
+	const getData = async () => {
+		console.log('localuser', localUser);
+		let userId = null;
+
+		const campaignId = selectedCampagin?._id && selectedCampagin?._id;
+		const payload = {
+			filters: {},
+			selectedFields: { campaignName: 1 },
 		};
+
+		if (localUser.role.type === 'admin') {
+			if (selectedUser) {
+				payload.filters = { ...payload.filters, owner: selectedUser._id };
+			} else {
+				payload.filters = { ...payload.filters };
+			}
+		} else {
+			payload.filters = { ...payload.filters, owner: localUser._id };
+		}
+
+		if (selectedCampagin?._id) {
+			payload.filters = { ...payload.filters, _id: campaignId };
+		}
+		setLoading(true);
+		console.log('payload', payload);
+		const { data } = await api.post('/campaigns/get', payload);
+		setLoading(false);
+		setList(data);
+	};
+	useEffect(() => {
 		getData();
 	}, []);
 
+	useEffect(() => {
+		getData();
+	}, [selectedUser, selectedCampagin]);
 	useEffect(() => {
 		setTotals({
 			all: list.length,
@@ -90,8 +122,20 @@ const CampaignList = () => {
 		}
 	};
 
+	const userName = selectedUser
+		? `${selectedUser.firstName} ${selectedUser.lastName}`
+		: 'all campaigns';
 	return (
 		<div>
+			<div>
+				<div className='flex flex-col gap-3 justify-center'>
+					<div className='flex items-center pt-4 pr-y'>
+						<h2 className='font-bold'>
+							Campaigns / <span class='font-normal'>{`${userName}`}</span>
+						</h2>
+					</div>
+				</div>
+			</div>
 			<div>
 				<div className='flex items-center gap-4 mb-10 mt-5'>
 					<h5
@@ -195,7 +239,6 @@ const CampaignList = () => {
 						</Thead>
 						<Tbody>
 							{orderBy(filterByMenu).map((item, index) => {
-								console.log('item', item);
 								return (
 									<Tr key={item._id}>
 										<Td>{item._id}</Td>
