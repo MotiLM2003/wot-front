@@ -25,14 +25,14 @@ export default function Home() {
 	const router = useRouter();
 	const { isLogged } = useSelector((state) => state.userReducer);
 	const dispatch = useDispatch();
-	// const [details, setDetails] = useState({
-	//   email: "moti2003@gmail.com",
-	//   password: "moti2003",
-	// });
 	const [details, setDetails] = useState({
-		email: '',
-		password: '',
+		email: 'motiphone2003@gmail.com',
+		password: 'moti2003',
 	});
+	// const [details, setDetails] = useState({
+	// 	email: '',
+	// 	password: '',
+	// });
 
 	const [isLoading, setLoading] = useState(false);
 	const [password, setPassword] = useState('');

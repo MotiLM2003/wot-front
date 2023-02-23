@@ -120,17 +120,19 @@ const Header = () => {
 														<div>User Manager</div>
 													</div>
 												</Link>
-												<div
-													className='flex gap-2 p-1 border-b border-b-gray hover:bg-[#F1F6F5] cursor-pointer'
-													onClick={() => {
-														setIsAdminMenuOpen(false);
-													}}
-												>
-													<div>
-														<Creditcard />
+												<Link href={'/crm/payments'}>
+													<div
+														className='flex gap-2 p-1 border-b border-b-gray hover:bg-[#F1F6F5] cursor-pointer'
+														onClick={() => {
+															setIsAdminMenuOpen(false);
+														}}
+													>
+														<div>
+															<Creditcard />
+														</div>
+														<div>Users payments</div>
 													</div>
-													<div>Users payments</div>
-												</div>
+												</Link>
 												<div
 													className='flex gap-2 p-1 border-b border-b-gray hover:bg-[#F1F6F5] cursor-pointer'
 													onClick={() => {

@@ -103,7 +103,7 @@ const DonationList = () => {
 	}, [selectedUser, selectedCampagin]);
 
 	const getData = async () => {
-		setLoadingMessage('Getting users list..');
+		setLoadingMessage('Getting donations list..');
 		setLoading(true);
 		try {
 			const payload = {

@@ -152,14 +152,13 @@ const Stage2 = ({
 									<span className='text-red font-bold'>28$ /mo</span>
 								</p>
 							</div>
-
-							<CreditcardHandler
-								onChange={onCreditcardChange}
-								state={data.creditCardNumber}
-							/>
 						</motion.div>
 					)}
 				</AnimatePresence>
+				<CreditcardHandler
+					onChange={onCreditcardChange}
+					state={data.creditCardNumber}
+				/>
 			</div>
 			dsad
 			<p className='text-black font-xs mt-8 flex justify-center items-center text-center'>

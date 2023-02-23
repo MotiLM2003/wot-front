@@ -135,7 +135,7 @@ const Donate = ({
 			console.log('no errors');
 			setIsHasErrors(false);
 		}
-		return;
+
 		let result = null;
 		// adding new donation.
 		if (customCompleteDonation === null) {

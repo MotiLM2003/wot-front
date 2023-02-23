@@ -13,12 +13,13 @@ import global from '../../../images/icons/white/global.svg';
 import analytics from '../../../images/icons/white/analytics.svg';
 import account from '../../../images/bigger-account.svg';
 import CRMMenuItem from './CRMMenuItem';
+
 const Sidebar = () => {
 	const { CRMMenuId } = useSelector((state) => state.menuReducer);
 	const { user } = useSelector((state) => state.userReducer);
 
 	return (
-		<div className='basis-1/6 bg-shades-600 py-10  rounded min-w-[160px] transition duration-500 '>
+		<div className='basis-1/6 bg-shades-600 py-10 min-w-[200px] max-w-[200px] rounded  transition duration-500 '>
 			<div className='sidebarMenu flex flex-col justify-center gap-4'>
 				<CRMMenuItem
 					icon={status}
@@ -28,21 +29,6 @@ const Sidebar = () => {
 					path='/dashboard/'
 				/>
 				<CRMMenuItem
-					icon={heart}
-					text='Donations'
-					id={1}
-					menuId={CRMMenuId}
-					path='/donations/'
-				/>
-
-				<CRMMenuItem
-					icon={partners}
-					text='Partners'
-					id={3}
-					menuId={CRMMenuId}
-					path='/partners/'
-				/>
-				<CRMMenuItem
 					icon={sound}
 					text='Campaigns'
 					id={4}
@@ -50,12 +36,27 @@ const Sidebar = () => {
 					path='/crm/campaigns/'
 				/>
 				<CRMMenuItem
-					icon={creditcard}
-					text='Payments'
-					id={5}
+					icon={heart}
+					text='Donations'
+					id={1}
 					menuId={CRMMenuId}
-					path='/payments/'
+					path='/donations/'
 				/>
+				<CRMMenuItem
+					icon={creditcard}
+					text='My Payments'
+					id={2}
+					menuId={CRMMenuId}
+					path='/crm/payments/'
+				/>
+				<CRMMenuItem
+					icon={partners}
+					text='Partners'
+					id={3}
+					menuId={CRMMenuId}
+					path='/partners/'
+				/>
+
 				<CRMMenuItem
 					icon={money}
 					text='Withdrawals'

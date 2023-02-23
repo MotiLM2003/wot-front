@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Cellphone = () => {
+	// some comments
 	return (
 		<svg
 			width='16'
